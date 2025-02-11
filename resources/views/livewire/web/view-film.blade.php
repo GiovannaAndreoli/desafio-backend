@@ -1,5 +1,6 @@
 <div>
     @foreach($films as $movie)
+    <a href="{{ route('detail', $movie->id) }}" class="relative w-full aspect-video bg-cover bg-center bg-no-repeat">
     <div class="max-w-screen-md mx-auto px-4 py-8 flex flex-col">
     
         <img src="{{ asset('storage/' . $movie->cover) }}" alt=""
@@ -13,6 +14,7 @@
         {{ $movie->summary }}
         </p>
     </div>
+</a>
     @endforeach
     
 </div>
