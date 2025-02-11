@@ -1,7 +1,8 @@
 <div>
     <div class="max-w-screen-lg mx-auto px-4 py-8">
-        <form class="w-full px-4 py-8 bg-zinc-100 text-zinc-950 rounded-lg space-y-4">
-            <h1 class="text-2xl font-bold text-center font-film">
+        <form action="{{ url('/salvar-filme') }}" method="POST" class="w-full px-4 py-8 bg-zinc-100 text-zinc-950 rounded-lg space-y-4">
+        @csrf
+        <h1 class="text-2xl font-bold text-center font-film">
                 Cadastrar Filme
             </h1>
 

@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use app\Model\Film;
 
 Route::get('/', \App\Livewire\Web\Home::class)->name('home');
 Route::get('/cadastrar', \App\Livewire\Web\CreateFilm::class)->name('create');
@@ -9,14 +10,20 @@ Route::post('/salvar-filme', function (Request $request) {
     $request->validate([
         'tittle' => 'required',
         'summary' => 'required',
-        'cover ' => 'required|integer|min:1895|max:' . date('Y'),
+        'cover ' => 'nullable|image',
     ]);
 
-    Filme::create([
+    $caminhoImagem = null;
+
+    if ($request->hasFile('cover')) {
+        $caminhoImagem = $request->file('cover')->store('filmes', 'public'); 
+    }
+
+    Film::create([
         'tittle' => $request->input('tittle'),
         'summary' => $request->input('summary'),
-        'cover' => $request->input('cover'),
+        'cover' => $caminhoImagem,
     ]);
 
-    return redirect()->back()->with('success');
+    return redirect()->back()->with('success', 'Filme cadastrado!');
 });
