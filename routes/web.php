@@ -6,6 +6,7 @@ use App\Models\Film;
 Route::get('/', \App\Livewire\Web\Home::class)->name('home');
 Route::get('/cadastrar', \App\Livewire\Web\CreateFilm::class)->name('create');
 Route::get('/ver', \App\Livewire\Web\ViewFilm::class)->name('see');
+Route::get('/filme/{id}', \App\Livewire\Web\FilmDetail::class)->name('detail');
 Route::post('/salvar-filme', function (Request $request)
  {
 
