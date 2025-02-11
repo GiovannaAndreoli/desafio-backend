@@ -5,12 +5,17 @@
         <h1 class="text-2xl font-bold text-center font-film">
                 Cadastrar Filme
             </h1>
+             
 
             <div class="flex flex-col gap-2 !mt-8">
                 <label for="title" class="font-semibold">
                     Título
                 </label>
                 <input type="text" id="title" name="title" class="rounded-lg border border-zinc-950 p-2">
+                
+                @error('title')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="flex flex-col gap-2">
@@ -18,6 +23,9 @@
                     Resumo
                 </label>
                 <textarea id="summary" name="summary" rows="6" class="rounded-lg border border-zinc-950 p-2"></textarea>
+                @error('summary')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="flex flex-col gap-2">
@@ -25,6 +33,9 @@
                     Capa
                 </label>
                 <input type="file" id="cover" name="cover" class="rounded-lg border border-zinc-950 p-2">
+                @error('cover')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <button type="submit"

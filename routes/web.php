@@ -14,7 +14,7 @@ Route::post('/salvar-filme', function (Request $request)
     $request->validate([
         'title' => 'required',
         'summary' => 'required',
-        'cover' => 'nullable|image',
+        'cover' => 'required|image|mimes:jpg,jpeg,png|max:2048',
     ]);
 
     $caminhoImagem = null;
@@ -23,11 +23,12 @@ Route::post('/salvar-filme', function (Request $request)
         $caminhoImagem = $request->file('cover')->store('filmes', 'public'); 
     }
 
-    Film::create([
+    $film = Film::create([
         'title' => $request->input('title'),
         'summary' => $request->input('summary'),
         'cover' => $caminhoImagem,
     ]);
 
-    return redirect()->back()->with('success', 'Filme cadastrado!');
+    return redirect()->route('detail', ['id' => $film->id])
+    ->with('success', 'Filme cadastrado com sucesso!');
 });

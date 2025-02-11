@@ -7,7 +7,7 @@
     
     <p class="text-lg text-gray-700">{{ $film->summary }}</p>
 
-    <a href="{{ route('home') }}" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">
+    <a href="{{ route('home') }}" class="inline-block mt-4 px-4 py-2 border border-transparent rounded hover:border-red-600 hover:text-red-600 transition-all ease-in-out">
         Voltar à Lista de Filmes
     </a>
 

@@ -16,5 +16,8 @@
     </div>
 </a>
     @endforeach
+
+    <div wire:model="page" class="mt-6 flex justify-center">
+        {{ $films->links() }}
     
 </div>
