@@ -1,6 +1,6 @@
 <div>
     <div class="px-4 py-8 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8">
-        @for ($i = 0; $i < 1; $i++)
+    @foreach($films as $movie)
             <a href="{{ route('see') }}" class="relative w-full aspect-video bg-cover bg-center bg-no-repeat"
                 style="background-image: url('https://picsum.photos/640/480')">
                 <div
@@ -15,6 +15,7 @@
                     </div>
                 </div>
             </a>
-        @endfor
+        @endforeach
+    
     </div>
 </div>
