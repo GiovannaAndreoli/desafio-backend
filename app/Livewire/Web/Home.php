@@ -3,7 +3,7 @@
 namespace App\Livewire\Web;
 
 use Livewire\Component;
-use App\Model\Film;
+use App\Models\Film;
 
 class Home extends Component
 {

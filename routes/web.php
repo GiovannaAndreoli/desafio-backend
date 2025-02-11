@@ -1,16 +1,18 @@
 <?php
 
 use Illuminate\Http\Request;
-use app\Model\Film;
+use App\Models\Film;
 
 Route::get('/', \App\Livewire\Web\Home::class)->name('home');
 Route::get('/cadastrar', \App\Livewire\Web\CreateFilm::class)->name('create');
 Route::get('/ver', \App\Livewire\Web\ViewFilm::class)->name('see');
 Route::post('/salvar-filme', function (Request $request) {
+
+   
     $request->validate([
-        'tittle' => 'required',
+        'title' => 'required',
         'summary' => 'required',
-        'cover ' => 'nullable|image',
+        'cover' => 'nullable|image',
     ]);
 
     $caminhoImagem = null;
@@ -20,7 +22,7 @@ Route::post('/salvar-filme', function (Request $request) {
     }
 
     Film::create([
-        'tittle' => $request->input('tittle'),
+        'title' => $request->input('title'),
         'summary' => $request->input('summary'),
         'cover' => $caminhoImagem,
     ]);

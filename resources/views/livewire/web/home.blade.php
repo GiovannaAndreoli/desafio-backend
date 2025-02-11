@@ -7,7 +7,8 @@
                     class="absolute flex items-end p-4 top-0 left-0 w-full h-full bg-gradient-to-t from-black to-black/20">
                     <div>
                         <h1 class="text-2xl font-bold">
-                            Título
+                        {{ $movie->title }}
+                        
                         </h1>
                         <h2 class="font-medium">
                             Diretor
